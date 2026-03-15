@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PriceCheck YEG — Edmonton Grocery Price Comparison</title>
+<title>PriceCheckYEG — Edmonton Grocery Price Comparison</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -18,7 +18,7 @@
     --red: #e74c3c;
     --gray-50: #f9f9f7;
     --gray-100: #f0efea;
-    --gray-200: #dddcD5;
+    --gray-200: #dddcd5;
     --gray-400: #9b9a93;
     --gray-600: #5a5954;
     --gray-900: #1c1c1a;
@@ -60,14 +60,11 @@
     white-space: nowrap;
     text-decoration: none;
     letter-spacing: -0.5px;
+    cursor: pointer;
   }
 
-  .logo span {
-    color: var(--gray-400);
-    font-weight: 700;
-  }
+  .logo span { color: var(--gray-400); font-weight: 700; }
 
-  /* SEARCH BAR */
   .search-wrapper {
     flex: 1;
     position: relative;
@@ -89,11 +86,7 @@
     transition: border-color 0.2s, background 0.2s;
   }
 
-  .search-input:focus {
-    border-color: var(--green);
-    background: white;
-  }
-
+  .search-input:focus { border-color: var(--green); background: white; }
   .search-input::placeholder { color: var(--gray-400); }
 
   .search-btn {
@@ -145,10 +138,7 @@
     margin-bottom: 16px;
   }
 
-  .hero h1 em {
-    font-style: normal;
-    color: var(--green);
-  }
+  .hero h1 em { font-style: normal; color: var(--green); }
 
   .hero p {
     font-size: 17px;
@@ -158,7 +148,6 @@
     margin: 0 auto 36px;
   }
 
-  /* MAIN SEARCH */
   .main-search {
     display: flex;
     gap: 10px;
@@ -202,7 +191,6 @@
   }
 
   .main-search-go:hover { background: var(--green-mid); transform: translateY(-1px); }
-  .main-search-go:active { transform: translateY(0); }
 
   .photo-btn {
     height: 52px;
@@ -224,14 +212,8 @@
   .photo-btn:hover { border-color: var(--green); }
   .photo-btn input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
   .photo-btn svg { width: 22px; height: 22px; color: var(--gray-600); pointer-events: none; }
+  .photo-hint { font-size: 12px; color: var(--gray-400); margin-top: 10px; }
 
-  .photo-hint {
-    font-size: 12px;
-    color: var(--gray-400);
-    margin-top: 10px;
-  }
-
-  /* QUICK SEARCHES */
   .quick-searches {
     max-width: 560px;
     margin: 16px auto 0;
@@ -253,13 +235,71 @@
     font-family: 'DM Sans', sans-serif;
   }
 
-  .quick-chip:hover {
-    border-color: var(--green);
-    color: var(--green);
-    background: var(--green-light);
+  .quick-chip:hover { border-color: var(--green); color: var(--green); background: var(--green-light); }
+
+  /* STORES BAR */
+  .stores-bar {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
   }
 
-  /* RESULTS SECTION */
+  .stores-label { font-size: 13px; color: var(--gray-400); margin-right: 4px; }
+
+  .store-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 100px;
+    padding: 5px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-600);
+  }
+
+  .store-tag-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* LOADING */
+  .loading-bar {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 24px;
+    display: none;
+  }
+
+  .loading-bar.visible { display: block; }
+
+  .loading-inner {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--gray-600);
+  }
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--gray-200);
+    border-top-color: var(--green);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* RESULTS */
   .results-section {
     max-width: 900px;
     margin: 0 auto;
@@ -286,13 +326,8 @@
   }
 
   .results-title span { color: var(--green); }
+  .results-meta { font-size: 13px; color: var(--gray-400); }
 
-  .results-meta {
-    font-size: 13px;
-    color: var(--gray-400);
-  }
-
-  /* SAVINGS BANNER */
   .savings-banner {
     background: var(--amber-light);
     border: 1px solid #f0d5b8;
@@ -304,21 +339,9 @@
     margin-bottom: 20px;
   }
 
-  .savings-icon {
-    font-size: 24px;
-    flex-shrink: 0;
-  }
-
-  .savings-text {
-    font-size: 14px;
-    color: #7a4a15;
-    line-height: 1.5;
-  }
-
-  .savings-text strong {
-    font-weight: 600;
-    font-size: 16px;
-  }
+  .savings-icon { font-size: 24px; flex-shrink: 0; }
+  .savings-text { font-size: 14px; color: #7a4a15; line-height: 1.5; }
+  .savings-text strong { font-weight: 600; font-size: 16px; }
 
   /* STORE CARDS */
   .store-cards {
@@ -334,12 +357,11 @@
     padding: 20px;
     position: relative;
     transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    cursor: pointer;
+    text-decoration: none;
   }
 
-  .store-card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
-  }
+  .store-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
 
   .store-card.best-deal {
     border-color: var(--green);
@@ -372,11 +394,13 @@
     gap: 8px;
   }
 
-  .store-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
+  .store-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  .product-name-small {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-bottom: 8px;
+    line-height: 1.4;
   }
 
   .store-price {
@@ -391,12 +415,6 @@
 
   .store-price.best { color: var(--green); }
 
-  .store-size {
-    font-size: 13px;
-    color: var(--gray-400);
-    margin-bottom: 10px;
-  }
-
   .unit-price {
     display: inline-block;
     background: var(--gray-100);
@@ -405,16 +423,14 @@
     font-size: 12px;
     font-weight: 600;
     color: var(--gray-600);
+    margin-bottom: 6px;
   }
 
-  .unit-price.best {
-    background: var(--green-light);
-    color: var(--green);
-  }
+  .unit-price.best { background: var(--green-light); color: var(--green); }
 
   .savings-chip {
     display: block;
-    margin-top: 10px;
+    margin-top: 8px;
     font-size: 12px;
     color: var(--red);
     font-weight: 600;
@@ -431,66 +447,44 @@
   .no-results.visible { display: block; }
   .no-results h3 { font-family: 'Fraunces', serif; font-size: 22px; color: var(--gray-600); margin-bottom: 8px; }
 
-  /* STORES BAR */
-  .stores-bar {
+  /* LAST UPDATED */
+  .last-updated-bar {
     max-width: 900px;
     margin: 0 auto;
-    padding: 24px 24px 0;
+    padding: 12px 24px 0;
     display: flex;
     align-items: center;
     gap: 8px;
-    flex-wrap: wrap;
+    font-size: 12px;
+    color: var(--gray-400);
   }
 
-  .stores-label { font-size: 13px; color: var(--gray-400); margin-right: 4px; }
-
-  .store-tag {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: 100px;
-    padding: 5px 12px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--gray-600);
+  .live-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
   }
 
-  .store-tag-dot { width: 8px; height: 8px; border-radius: 50%; }
-
-  /* PHOTO RESULT */
-  .photo-result-banner {
-    background: white;
-    border: 1.5px dashed var(--green);
-    border-radius: 14px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    display: none;
-    align-items: center;
-    gap: 14px;
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
   }
 
-  .photo-result-banner.visible { display: flex; }
-  .photo-thumb { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
-
-  .photo-result-text { font-size: 14px; color: var(--gray-600); line-height: 1.5; }
-  .photo-result-text strong { color: var(--gray-900); font-weight: 600; }
-
-  /* FOOTER */
   footer {
     text-align: center;
     padding: 32px 24px;
     font-size: 12px;
     color: var(--gray-400);
     border-top: 1px solid var(--gray-200);
+    margin-top: 40px;
   }
 
   @media (max-width: 600px) {
     .header-inner { gap: 12px; }
     .logo { font-size: 18px; }
     .main-search { flex-wrap: wrap; }
-    .main-search-input { min-width: 0; }
     .store-cards { grid-template-columns: 1fr 1fr; }
   }
 </style>
@@ -499,7 +493,7 @@
 
 <header>
   <div class="header-inner">
-    <a class="logo" href="#">PriceCheck<span>YEG</span></a>
+    <div class="logo" onclick="showHero()">PriceCheck<span>YEG</span></div>
     <div class="search-wrapper">
       <input class="search-input" type="text" placeholder="Search a grocery item..." id="headerSearch" onkeydown="if(event.key==='Enter')doSearch(this.value)">
       <button class="search-btn" onclick="doSearch(document.getElementById('headerSearch').value)">
@@ -511,18 +505,29 @@
 
 <div class="stores-bar">
   <span class="stores-label">Comparing:</span>
-  <div class="store-tag"><span class="store-tag-dot" style="background:#0071ce"></span>Walmart</div>
   <div class="store-tag"><span class="store-tag-dot" style="background:#e2231a"></span>Superstore</div>
   <div class="store-tag"><span class="store-tag-dot" style="background:#78b828"></span>Freshco</div>
-  <div class="store-tag"><span class="store-tag-dot" style="background:#f05a22"></span>Save-On Foods</div>
+  <div class="store-tag" style="opacity:0.5"><span class="store-tag-dot" style="background:#0071ce"></span>Walmart — coming soon</div>
+</div>
+
+<div class="last-updated-bar" id="lastUpdatedBar" style="display:none">
+  <span class="live-dot"></span>
+  <span id="lastUpdatedText">Prices updated today</span>
+</div>
+
+<div class="loading-bar" id="loadingBar">
+  <div class="loading-inner">
+    <div class="spinner"></div>
+    <span>Loading real Edmonton prices...</span>
+  </div>
 </div>
 
 <section class="hero" id="heroSection">
-  <div class="hero-eyebrow">Edmonton, AB</div>
+  <div class="hero-eyebrow">Edmonton, AB — Real Prices</div>
   <h1>Stop <em>overpaying</em><br>for groceries.</h1>
-  <p>Search any item and instantly see prices at Walmart, Superstore, Freshco, and Save-On Foods — with unit price so you always know the real deal.</p>
+  <p>Search any item and instantly see real prices at Superstore and Freshco — with unit price so you always know the real deal.</p>
   <div class="main-search">
-    <input class="main-search-input" type="text" placeholder="Try &quot;mayonnaise&quot; or &quot;butter&quot;..." id="mainSearch" onkeydown="if(event.key==='Enter')doSearch(this.value)">
+    <input class="main-search-input" type="text" placeholder='Try "butter" or "eggs"...' id="mainSearch" onkeydown="if(event.key==='Enter')doSearch(this.value)">
     <label class="photo-btn" title="Take or upload a photo">
       <input type="file" accept="image/*" capture="environment" onchange="handlePhoto(event)">
       <svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
@@ -530,24 +535,16 @@
     <button class="main-search-go" onclick="doSearch(document.getElementById('mainSearch').value)">Compare</button>
   </div>
   <p class="photo-hint">📷 Or take a photo of any item in-store to compare</p>
-  <div class="quick-searches">
-    <button class="quick-chip" onclick="doSearch('mayonnaise')">🥄 Mayonnaise</button>
+  <div class="quick-searches" id="quickSearches">
     <button class="quick-chip" onclick="doSearch('butter')">🧈 Butter</button>
     <button class="quick-chip" onclick="doSearch('eggs')">🥚 Eggs</button>
-    <button class="quick-chip" onclick="doSearch('olive oil')">🫒 Olive Oil</button>
-    <button class="quick-chip" onclick="doSearch('pasta')">🍝 Pasta</button>
-    <button class="quick-chip" onclick="doSearch('rice')">🍚 Rice</button>
+    <button class="quick-chip" onclick="doSearch('ketchup')">🍅 Ketchup</button>
+    <button class="quick-chip" onclick="doSearch('bread')">🍞 Bread</button>
+    <button class="quick-chip" onclick="doSearch('mayonnaise')">🥄 Mayonnaise</button>
   </div>
 </section>
 
 <section class="results-section" id="resultsSection">
-  <div id="photoBanner" class="photo-result-banner">
-    <img id="photoThumb" class="photo-thumb" src="" alt="">
-    <div class="photo-result-text">
-      <strong id="photoDetected">Hellmann's Real Mayonnaise</strong> detected from your photo.<br>
-      Showing prices across all Edmonton stores.
-    </div>
-  </div>
   <div class="results-header">
     <div class="results-title">Results for "<span id="resultsQuery"></span>"</div>
     <div class="results-meta" id="resultsMeta"></div>
@@ -561,200 +558,183 @@
 
 <div class="no-results" id="noResults">
   <h3>No results found</h3>
-  <p>Try searching for: mayonnaise, butter, eggs, olive oil, pasta, rice, bread, ketchup, milk, cheese</p>
+  <p id="noResultsText">Try: butter, eggs, ketchup, bread, mayonnaise</p>
 </div>
 
 <footer>
-  PriceCheckYEG &mdash; Edmonton grocery price comparison &mdash; Prices updated daily &mdash; Always verify in-store
+  PriceCheckYEG &mdash; Edmonton grocery price comparison &mdash; Prices sourced from public store websites &mdash; Always verify in-store &mdash; Not affiliated with any retailer
 </footer>
 
 <script>
-const PRODUCTS = {
-  mayonnaise: {
-    name: "Hellmann's Real Mayonnaise",
-    stores: [
-      { name: "Walmart", color: "#0071ce", price: 5.97, size: "890ml", unit: 100 },
-      { name: "Superstore", color: "#e2231a", price: 6.49, size: "890ml", unit: 100 },
-      { name: "Freshco", color: "#78b828", price: 5.49, size: "890ml", unit: 100 },
-      { name: "Save-On Foods", color: "#f05a22", price: 6.99, size: "890ml", unit: 100 }
-    ]
-  },
-  butter: {
-    name: "Gay Lea Salted Butter",
-    stores: [
-      { name: "Walmart", color: "#0071ce", price: 6.97, size: "454g", unit: 100 },
-      { name: "Superstore", color: "#e2231a", price: 7.49, size: "454g", unit: 100 },
-      { name: "Freshco", color: "#78b828", price: 6.49, size: "454g", unit: 100 },
-      { name: "Save-On Foods", color: "#f05a22", price: 7.99, size: "454g", unit: 100 }
-    ]
-  },
-  eggs: {
-    name: "Free Run Large Eggs",
-    stores: [
-      { name: "Walmart", color: "#0071ce", price: 5.47, size: "12 pack", unit: 1 },
-      { name: "Superstore", color: "#e2231a", price: 5.99, size: "12 pack", unit: 1 },
-      { name: "Freshco", color: "#78b828", price: 4.99, size: "12 pack", unit: 1 },
-      { name: "Save-On Foods", color: "#f05a22", price: 6.49, size: "12 pack", unit: 1 }
-    ]
-  },
-  "olive oil": {
-    name: "Bertolli Extra Virgin Olive Oil",
-    stores: [
-      { name: "Walmart", color: "#0071ce", price: 11.97, size: "750ml", unit: 100 },
-      { name: "Superstore", color: "#e2231a", price: 13.49, size: "750ml", unit: 100 },
-      { name: "Freshco", color: "#78b828", price: 10.99, size: "750ml", unit: 100 },
-      { name: "Save-On Foods", color: "#f05a22", price: 12.99, size: "750ml", unit: 100 }
-    ]
-  },
-  pasta: {
-    name: "Barilla Spaghetti",
-    stores: [
-      { name: "Walmart", color: "#0071ce", price: 2.47, size: "900g", unit: 100 },
-      { name: "Superstore", color: "#e2231a", price: 2.99, size: "900g", unit: 100 },
-      { name: "Freshco", color: "#78b828", price: 2.29, size: "900g", unit: 100 },
-      { name: "Save-On Foods", color: "#f05a22", price: 3.19, size: "900g", unit: 100 }
-    ]
-  },
-  rice: {
-    name: "Nishiki Premium Sushi Rice",
-    stores: [
-      { name: "Walmart", color: "#0071ce", price: 9.97, size: "2kg", unit: 100 },
-      { name: "Superstore", color: "#e2231a", price: 11.49, size: "2kg", unit: 100 },
-      { name: "Freshco", color: "#78b828", price: 9.49, size: "2kg", unit: 100 },
-      { name: "Save-On Foods", color: "#f05a22", price: 10.99, size: "2kg", unit: 100 }
-    ]
-  },
-  bread: {
-    name: "Dempster's Whole Grain Bread",
-    stores: [
-      { name: "Walmart", color: "#0071ce", price: 4.47, size: "675g", unit: 100 },
-      { name: "Superstore", color: "#e2231a", price: 4.99, size: "675g", unit: 100 },
-      { name: "Freshco", color: "#78b828", price: 3.99, size: "675g", unit: 100 },
-      { name: "Save-On Foods", color: "#f05a22", price: 5.29, size: "675g", unit: 100 }
-    ]
-  },
-  ketchup: {
-    name: "Heinz Tomato Ketchup",
-    stores: [
-      { name: "Walmart", color: "#0071ce", price: 5.97, size: "1L", unit: 100 },
-      { name: "Superstore", color: "#e2231a", price: 6.49, size: "1L", unit: 100 },
-      { name: "Freshco", color: "#78b828", price: 5.49, size: "1L", unit: 100 },
-      { name: "Save-On Foods", color: "#f05a22", price: 6.79, size: "1L", unit: 100 }
-    ]
-  },
-  milk: {
-    name: "Natrel 2% Partly Skimmed Milk",
-    stores: [
-      { name: "Walmart", color: "#0071ce", price: 5.97, size: "4L", unit: 1 },
-      { name: "Superstore", color: "#e2231a", price: 6.49, size: "4L", unit: 1 },
-      { name: "Freshco", color: "#78b828", price: 5.79, size: "4L", unit: 1 },
-      { name: "Save-On Foods", color: "#f05a22", price: 6.99, size: "4L", unit: 1 }
-    ]
-  },
-  cheese: {
-    name: "Cracker Barrel Old Cheddar",
-    stores: [
-      { name: "Walmart", color: "#0071ce", price: 9.97, size: "400g", unit: 100 },
-      { name: "Superstore", color: "#e2231a", price: 10.99, size: "400g", unit: 100 },
-      { name: "Freshco", color: "#78b828", price: 9.49, size: "400g", unit: 100 },
-      { name: "Save-On Foods", color: "#f05a22", price: 11.49, size: "400g", unit: 100 }
-    ]
-  }
+// ============================================================
+// PriceCheckYEG — Real Price Website
+// Fetches live prices from pricecheckyeg-data repo
+// ============================================================
+
+const PRICES_URL = "https://raw.githubusercontent.com/psam8901/pricecheckyeg-data/main/prices.json";
+
+const STORE_COLORS = {
+  "Superstore": "#e2231a",
+  "Freshco": "#78b828",
+  "Walmart": "#0071ce",
+  "Save-On Foods": "#f05a22"
 };
 
-function findProduct(query) {
-  const q = query.toLowerCase().trim();
-  for (const [key, val] of Object.entries(PRODUCTS)) {
-    if (key.includes(q) || q.includes(key) || val.name.toLowerCase().includes(q)) {
-      return val;
+let allPrices = [];
+let lastUpdated = "";
+
+// Load prices when page opens
+window.addEventListener("load", loadPrices);
+
+async function loadPrices() {
+  document.getElementById("loadingBar").classList.add("visible");
+  try {
+    const response = await fetch(PRICES_URL + "?t=" + Date.now());
+    if (!response.ok) throw new Error("Failed to fetch prices");
+    const data = await response.json();
+    allPrices = data.prices || [];
+    lastUpdated = data.last_updated || "";
+
+    // Show last updated
+    if (lastUpdated) {
+      document.getElementById("lastUpdatedBar").style.display = "flex";
+      document.getElementById("lastUpdatedText").textContent =
+        "Prices updated: " + lastUpdated + " MST";
     }
+
+    // Update quick search chips based on available categories
+    updateQuickChips();
+
+    console.log("Loaded " + allPrices.length + " real prices from Edmonton stores");
+  } catch (error) {
+    console.error("Could not load prices:", error);
   }
-  return null;
+  document.getElementById("loadingBar").classList.remove("visible");
 }
 
-function calcUnitPrice(store) {
-  const sizeNum = parseFloat(store.size);
-  if (!sizeNum) return null;
-  if (store.unit === 1) return null;
-  return (store.price / sizeNum) * store.unit;
+function updateQuickChips() {
+  const categories = [...new Set(allPrices.map(p => p.category))];
+  const categoryEmojis = {
+    butter: "🧈",
+    eggs: "🥚",
+    ketchup: "🍅",
+    bread: "🍞",
+    mayonnaise: "🥄",
+    milk: "🥛",
+    cheese: "🧀",
+    pasta: "🍝",
+    rice: "🍚",
+    "olive oil": "🫒"
+  };
+
+  const container = document.getElementById("quickSearches");
+  if (categories.length > 0) {
+    container.innerHTML = categories.map(cat => {
+      const emoji = categoryEmojis[cat] || "🛒";
+      return `<button class="quick-chip" onclick="doSearch('${cat}')">${emoji} ${cat.charAt(0).toUpperCase() + cat.slice(1)}</button>`;
+    }).join("");
+  }
 }
 
 function doSearch(query) {
   if (!query || !query.trim()) return;
-  document.getElementById('headerSearch').value = query;
-  document.getElementById('mainSearch').value = query;
+  query = query.trim().toLowerCase();
 
-  const product = findProduct(query);
-  const heroSection = document.getElementById('heroSection');
-  const resultsSection = document.getElementById('resultsSection');
-  const noResults = document.getElementById('noResults');
-  const photoBanner = document.getElementById('photoBanner');
+  document.getElementById("headerSearch").value = query;
+  document.getElementById("mainSearch").value = query;
 
-  photoBanner.classList.remove('visible');
+  const heroSection = document.getElementById("heroSection");
+  const resultsSection = document.getElementById("resultsSection");
+  const noResults = document.getElementById("noResults");
 
-  if (!product) {
-    heroSection.style.display = 'none';
-    resultsSection.classList.remove('visible');
-    noResults.classList.add('visible');
+  // Search in live prices first
+  let matches = allPrices.filter(p =>
+    p.category.toLowerCase().includes(query) ||
+    p.name.toLowerCase().includes(query)
+  );
+
+  if (matches.length === 0) {
+    heroSection.style.display = "none";
+    resultsSection.classList.remove("visible");
+    noResults.classList.add("visible");
+    document.getElementById("noResultsText").textContent =
+      "No results for \"" + query + "\". Try: " + [...new Set(allPrices.map(p => p.category))].join(", ");
     return;
   }
 
-  noResults.classList.remove('visible');
-  heroSection.style.display = 'none';
-  resultsSection.classList.add('visible');
+  noResults.classList.remove("visible");
+  heroSection.style.display = "none";
+  resultsSection.classList.add("visible");
 
-  document.getElementById('resultsQuery').textContent = query;
-  document.getElementById('resultsMeta').textContent = product.name + ' · Prices updated today';
+  // Show results
+  document.getElementById("resultsQuery").textContent = query;
+  document.getElementById("resultsMeta").textContent =
+    matches.length + " results · " + (lastUpdated ? "Updated " + lastUpdated : "Live prices");
 
-  const stores = product.stores;
-  const minPrice = Math.min(...stores.map(s => s.price));
-  const maxPrice = Math.max(...stores.map(s => s.price));
+  const minPrice = Math.min(...matches.map(p => p.price));
+  const maxPrice = Math.max(...matches.map(p => p.price));
   const savings = (maxPrice - minPrice).toFixed(2);
+  const cheapest = matches.find(p => p.price === minPrice);
 
-  const cheapestStore = stores.find(s => s.price === minPrice);
-  document.getElementById('savingsText').innerHTML =
-    `<strong>Save $${savings}</strong> by shopping at <strong>${cheapestStore.name}</strong> instead of the most expensive option this week.`;
+  const savingsText = document.getElementById("savingsText");
+  if (savings > 0) {
+    savingsText.innerHTML =
+      `<strong>Save $${savings}</strong> by shopping at <strong>${cheapest.store}</strong> instead of the most expensive option this week.`;
+    document.getElementById("savingsBanner").style.display = "flex";
+  } else {
+    document.getElementById("savingsBanner").style.display = "none";
+  }
 
-  const container = document.getElementById('storeCards');
-  container.innerHTML = '';
+  // Sort by price
+  const sorted = [...matches].sort((a, b) => a.price - b.price);
 
-  const sortedStores = [...stores].sort((a, b) => a.price - b.price);
+  const container = document.getElementById("storeCards");
+  container.innerHTML = "";
 
-  sortedStores.forEach((store, idx) => {
-    const isBest = store.price === minPrice;
-    const unitPrice = calcUnitPrice(store);
-    const overpay = store.price > minPrice ? `$${(store.price - minPrice).toFixed(2)} more than best` : null;
+  sorted.forEach(product => {
+    const isBest = product.price === minPrice;
+    const overpay = product.price > minPrice
+      ? `$${(product.price - minPrice).toFixed(2)} more than best`
+      : null;
 
-    const card = document.createElement('div');
-    card.className = 'store-card' + (isBest ? ' best-deal' : '');
+    const color = STORE_COLORS[product.store] || "#888";
+
+    const card = document.createElement("a");
+    card.className = "store-card" + (isBest ? " best-deal" : "");
+    card.href = product.url;
+    card.target = "_blank";
+    card.rel = "noopener";
+
     card.innerHTML = `
-      ${isBest ? '<div class="best-badge">✓ Best Price</div>' : ''}
+      ${isBest ? '<div class="best-badge">✓ Best Price</div>' : ""}
       <div class="store-name">
-        <span class="store-dot" style="background:${store.color}"></span>
-        ${store.name}
+        <span class="store-dot" style="background:${color}"></span>
+        ${product.store}
       </div>
-      <div class="store-price ${isBest ? 'best' : ''}">$${store.price.toFixed(2)}</div>
-      <div class="store-size">${store.size}</div>
-      ${unitPrice ? `<span class="unit-price ${isBest ? 'best' : ''}">$${unitPrice.toFixed(3)}/100g</span>` : ''}
-      ${overpay ? `<span class="savings-chip">▲ ${overpay}</span>` : ''}
+      <div class="product-name-small">${product.name}</div>
+      <div class="store-price ${isBest ? "best" : ""}">$${product.price.toFixed(2)}</div>
+      ${product.price_raw ? `<div class="unit-price ${isBest ? "best" : ""}">${product.price_raw}</div>` : ""}
+      ${overpay ? `<span class="savings-chip">▲ ${overpay}</span>` : ""}
     `;
+
     container.appendChild(card);
   });
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function showHero() {
+  document.getElementById("heroSection").style.display = "block";
+  document.getElementById("resultsSection").classList.remove("visible");
+  document.getElementById("noResults").classList.remove("visible");
+  document.getElementById("mainSearch").value = "";
+  document.getElementById("headerSearch").value = "";
 }
 
 function handlePhoto(event) {
   const file = event.target.files[0];
   if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const banner = document.getElementById('photoBanner');
-    document.getElementById('photoThumb').src = e.target.result;
-    banner.classList.add('visible');
-    doSearch('mayonnaise');
-  };
-  reader.readAsDataURL(file);
+  alert("📷 Photo feature coming soon! For now, try searching the product name above.");
 }
 </script>
 </body>
